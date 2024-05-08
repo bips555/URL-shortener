@@ -9,7 +9,7 @@ export const createURL = async (
     const urlFound = await URLshortenerModel.find({ fullUrl });
     if (urlFound.length > 0) {
       res.status(409);
-      res.send(urlFound);
+      res.send({"message":"URl already exists."});
     } else {
       const shortUrl = await URLshortenerModel.create({
         fullUrl
